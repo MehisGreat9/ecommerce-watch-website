@@ -767,7 +767,7 @@ main{
 }
 section{
   min-height: 100vh;
-  padding: 3rem; 
+  padding: 2.5rem; /*change it to be a little small*/
   overflow-x: hidden;
 }
 /*==================== 12. ABOUT SECTION ====================*/
@@ -1213,7 +1213,101 @@ section{
   transform: translateY(0);
 }
 /*==================== 15. TESTIMONIALS SECTION ====================*/
-
+.testimonials{
+  position: relative;
+}
+.test_wrapper, .img_holder{
+  position: relative;
+  z-index: 1;
+}
+.test_wrapper::before{
+  content: '';
+  position: absolute;
+}
+.img_holder.test_wrapper::before{
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-image: var(--background-dark);
+}
+.img_cover{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.testi_slider_container{
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+.testi_track{
+  display: flex;
+  will-change: transform;
+  transition: transform 1s ease;
+}
+.testimonials .testi_container{
+  min-width: 100%;
+  margin-top: 1rem;
+  height: auto;
+  display: grid;
+  position: relative;
+}
+.testimonials_content{
+  max-width: 700px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+.testimonials_content .heading_text{
+  margin-left: 1rem;
+}
+.testimonials_content span{
+  padding-left: 1rem;
+}
+.testimonials .test_wrapper,
+.testimonials_banner{
+  padding-inline-start: 45px;
+}
+.testimonials .testi_text{
+  font-size: 1.2rem;
+  color: var(--text);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-top: 1rem;
+  width: fit-content;
+  max-width: 500px;
+}
+.testimonials .test_wrapper::before{
+  top: 10px;
+  left: 10px;
+  background: url('images/about-quote.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+}
+.testimonials_banner{
+  position: relative;
+  width: fit-content;
+}
+.img_holder{
+  background-color: hsl(0,0%,20%);
+  aspect-ratio: var(--width) / var(--height);
+  overflow: hidden;
+}
+.testimonials .watch_type{
+  padding: .75rem;
+  border-radius: .5rem;
+  text-align: center;
+  display: block;
+  max-width: 300px;
+  position: relative;
+  top: -20%;
+  left: -34px;
+  font-size: 1.2rem;
+  z-index: 1;
+  background-color: var(--secondary-dark);
+}
 /*==================== 16. BLOG SECTION ====================*/
 
 /*==================== 17. FOOTER ====================*/
@@ -1225,15 +1319,19 @@ section{
   .glass_inner .heading_text{
     font-size: 2.28rem;
   }
-
-  
+  .testimonials_content .heading_text{
+    font-size: 2.85rem;
+  }
 }
 @media (min-width: 650px){
   .head{
     display: flex;
     gap: 1rem;
   }
-  
+  .testimonials .watch_type{
+    top: -10%;
+    left: -4rem;
+  }
 }
 @media(min-width: 768px){
   .title h1{
@@ -1259,9 +1357,27 @@ section{
   .gallery_item.rem{
     grid-column: span 2;
   }
-  
+  .testimonials_banner{
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  .testimonials .testi_text{
+    font-size: 1.7rem;
+  }
 }
-  
+
+@media(min-width: 992px){
+  .testimonials .testi_container{
+    grid-template-columns: .9fr 1fr;
+    align-items: flex-start;
+    gap: 50px;
+    padding-left: 4rem;
+    }
+
+  .testimonials_content{
+    order: 1;
+  }
+}
 
 @media(min-width: 1024px){
   html, body{
@@ -1298,6 +1414,8 @@ section{
   .gallery_item.wide{
     grid-column: span 2;
   }
- 
+  .testimonials .watch_type{
+    top: -7rem;
+  }
 }
 
