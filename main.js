@@ -169,3 +169,54 @@ document.addEventListener('DOMContentLoaded', function(){
     });
     
 });
+
+//TESTIMONIAL SLIDER
+let currIndex = 1;
+let istransition = false;
+const sliderTrack= document.querySelector('.testi_track');
+const testimonials = Array.from(document.querySelectorAll('.testi_container'));
+const totalTesti = testimonials.length;
+function clone_Nodes(){
+    const firstClone = testimonials[0].cloneNode(true);
+    const lastClone = testimonials[totalTesti - 1].cloneNode(true);
+    sliderTrack.appendChild(firstClone);
+    sliderTrack.insertBefore(lastClone, testimonials[0]);
+}
+function initSlider(){
+    clone_Nodes();
+    sliderTrack.style.transform = `translateX(-100%)`;
+}
+function slideTo(index){
+    if(istransition) return;
+    istransition = true;
+    sliderTrack.style.transition = 'transform 1s ease-in-out';
+    sliderTrack.style.transform = `translateX(-${index * 100}%)`;
+    sliderTrack.addEventListener(
+        'transitionend',
+        () => {
+            istransition = false;
+            if(index === totalTesti + 1){
+                sliderTrack.style.transition = 'none';
+                currIndex = 1;
+                sliderTrack.style.transform = `translateX(-${currIndex * 100}%)`;
+            } else if (index === 0){
+                sliderTrack.style.transition = 'none';
+                currIndex = totalTesti;
+                sliderTrack.style.transform = `translateX(-${currIndex * 100}%)`;
+            }
+        },
+        { once: true }
+    );
+}
+function startSlider(){
+    setInterval(() => {
+        if (!istransition){
+            currIndex++;
+            slideTo(currIndex);
+        }
+    }, 5000);
+}
+window.onload = () => {
+    initSlider();
+    startSlider();
+};
