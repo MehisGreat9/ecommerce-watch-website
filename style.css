@@ -1309,7 +1309,47 @@ section{
   background-color: var(--secondary-dark);
 }
 /*==================== 16. BLOG SECTION ====================*/
-
+.blog_container{
+  margin: 0 auto;
+  justify-content: space-between;
+  max-width: 900px;
+}
+.blog_card{
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+}
+.blog_img{
+  max-width: 300px;
+  max-height: 340px;
+  overflow: hidden;
+}
+.blog_post{
+  max-width: 330px;
+  max-height: 420px;
+  margin-top: 0;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 0px 0px 30px 30px;
+  color: var(--background-light);
+  background-color: var(--primary-light);
+}
+.watch_blog{
+  max-width: 330px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 3rem;
+  width: 100%;
+  gap: 2rem;
+  margin-left: 0;
+  height: 100%;
+}
+.watch_blog p{
+  color: var(--text);
+}
+.watch_blog #btn_container{
+  margin-right: auto;
+}
 /*==================== 17. FOOTER ====================*/
 
 /*-----------------------------------*\
@@ -1322,6 +1362,10 @@ section{
   .testimonials_content .heading_text{
     font-size: 2.85rem;
   }
+  .watch_blog p{
+    font-size: .9rem;
+  }
+
 }
 @media (min-width: 650px){
   .head{
@@ -1364,6 +1408,36 @@ section{
   .testimonials .testi_text{
     font-size: 1.7rem;
   }
+  .blog_card{
+    flex-direction: row;
+  }
+  .blog_card:nth-child(odd){
+    flex-direction: row;
+    text-align: left;
+  }
+  .blog_card:nth-child(even){
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+  .blog_card:nth-child(even) #btn_container{
+    margin-right: 0;
+    margin-left: auto;
+  }
+  .blog_img{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .blog_card:nth-child(odd) .blog_post{
+    border-radius: 0px 30px 30px 0px;
+  }
+  .blog_card:nth-child(even) .blog_post{
+    border-radius: 30px 0px 0px 30px;
+  }
+  .watch_blog .sub_heading{
+    font-size: 2.2rem;
+    width: 100%;
+  }
+
 }
 
 @media(min-width: 992px){
