@@ -1428,12 +1428,7 @@ footer{
   #MEDIA QUERIES
 \*-----------------------------------*/ 
 @media (max-width:500px){
-  /* .glass_inner .heading_text{
-    font-size: 2.28rem;
-  }
-  .testimonials_content .heading_text{
-    font-size: 2.85rem;
-  } */
+ 
   .watch_blog p{
     font-size: .9rem;
   }
