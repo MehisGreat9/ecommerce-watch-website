@@ -127,11 +127,11 @@ input, button, select, textarea{
 }
 /*==================== 5. TEXT DEFAULTS ====================*/
 .heading_text{
-  font-size: 4rem;
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
   width: 100%;
 }
 .sub_heading{
-  font-size: 2.5rem;
+  font-size: 2.3rem;
 }
 .heading_text, .sub_heading{
   font-family: var(--ff-recoleta);
@@ -573,7 +573,7 @@ button span {
 /*==================== 10. HOME SECTION ====================*/
 .home{
   position: absolute;
-  width: 95vw;
+  width: 80vw;
   height: 100%;
   top: 50%;
   left: 50%;
@@ -903,7 +903,8 @@ section{
 }
 .left_abt{
   margin-top: 2rem;
-  max-width: 500px;
+  max-width: 550px;
+  min-width: 500px;
   overflow: hidden;
   border-radius: 20px;
   background: linear-gradient(131.83deg, rgba(255,255,255,.4) 0%,
@@ -957,7 +958,7 @@ section{
 }
 .cart_slider{
   padding: 1rem;
-  max-width: 900px;
+  max-width: 870px;
   row-gap: 2rem;
   margin: 0 auto;
 }
@@ -1351,17 +1352,88 @@ section{
   margin-right: auto;
 }
 /*==================== 17. FOOTER ====================*/
-
+footer{
+  background: var(--background-dark);
+  color: var(--text);
+  padding: 2rem 0;
+}
+.footer_container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footer_container > div{
+  padding: .5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.footer_container > div h2{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.footer_links ul{
+  list-style: none;
+  padding: 0;
+}
+.footer_links li{
+  padding: .5rem;
+}
+.footer_links ul li a{
+  color: var(--text);
+  transition: color .3s;
+}
+.footer_links ul li a:hover,
+.footer_socials .social_icons a:hover{
+  color: var(--secondary-dark);
+}
+.social_icons{
+  flex-direction: column;
+}
+.social_icons a{
+  color: var(--text);
+  font-size: 1.5rem;
+  transition: color .3s;
+}
+.footer_newsletter form{
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.footer_newsletter input{
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #1a2c38, #3b5d6d);
+  color: var(--background-light);
+  max-width: 160px;
+  margin: 1rem auto;
+  transition: background .3s;
+}
+.footer_newsletter input:hover{
+  background: var(--primary-light);
+}
+.footer_newsletter button{
+  width: 100%;
+}
+.footer_bottom{
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--text);
+  font-size: .9rem;
+}
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/ 
 @media (max-width:500px){
-  .glass_inner .heading_text{
+  /* .glass_inner .heading_text{
     font-size: 2.28rem;
   }
   .testimonials_content .heading_text{
     font-size: 2.85rem;
-  }
+  } */
   .watch_blog p{
     font-size: .9rem;
   }
@@ -1377,10 +1449,7 @@ section{
     left: -4rem;
   }
 }
-@media(min-width: 768px){
-  .title h1{
-    font-size: 2em;
-  }
+@media (min-width:500px){
   #slide .item{
     top: 7rem;
     max-width: 900px;
@@ -1395,9 +1464,12 @@ section{
   .item .image img{
     height: 100%;
   }
-  .left_abt{
-    max-width: 600px;
+}
+@media(min-width: 768px){
+  .title h1{
+    font-size: 2em;
   }
+  
   .gallery_item.rem{
     grid-column: span 2;
   }
@@ -1434,7 +1506,6 @@ section{
     border-radius: 30px 0px 0px 30px;
   }
   .watch_blog .sub_heading{
-    font-size: 2.2rem;
     width: 100%;
   }
 
@@ -1492,4 +1563,3 @@ section{
     top: -7rem;
   }
 }
-
